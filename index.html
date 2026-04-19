@@ -6,335 +6,156 @@
   <title>Sole Quest | Premium Running Shoes & Apparel UK</title>
   <meta name="description" content="Sole Quest – UK's premium running shoe destination. Shop easy run trainers, comfortable everyday runners, and race-day performance shoes. Free UK delivery over £75.">
   <meta name="keywords" content="running shoes UK, easy run shoes, race day trainers, running apparel, performance running shoes, comfortable running shoes, best running shoes 2026">
-  <meta name="author" content="Sole Quest">
-  <meta property="og:title" content="Sole Quest | Premium Running Shoes UK">
-  <meta property="og:description" content="Find your perfect run. Shop our curated range of easy run, comfort and race performance shoes.">
-  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --black: #0a0a0a;
-      --white: #f8f7f4;
-      --accent: #e8ff00;
-      --grey-light: #efefef;
-      --grey-mid: #b0b0b0;
-      --grey-dark: #3a3a3a;
-      --font-display: 'Barlow Condensed', sans-serif;
-      --font-body: 'Barlow', sans-serif;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); background: var(--white); color: var(--black); overflow-x: hidden; }
-
-    /* DEMO BANNER */
-    .demo-banner {
-      background: var(--black); color: var(--accent);
-      text-align: center; padding: 9px 16px;
-      font-family: var(--font-display); font-size: 11px;
-      font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-      position: sticky; top: 0; z-index: 1000;
-    }
-
-    /* NAV */
-    nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px; height: 68px; background: var(--white);
-      border-bottom: 1px solid #e0e0e0;
-      position: sticky; top: 33px; z-index: 999;
-    }
-    .nav-logo {
-      font-family: var(--font-display); font-size: 26px; font-weight: 900;
-      letter-spacing: -1px; color: var(--black); text-decoration: none; text-transform: uppercase;
-    }
-    .nav-logo span { color: var(--accent); background: var(--black); padding: 1px 5px; }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      font-family: var(--font-display); font-size: 14px; font-weight: 700;
-      letter-spacing: 1px; text-transform: uppercase; color: var(--black);
-      text-decoration: none; transition: color 0.2s; padding-bottom: 2px;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--grey-mid); border-bottom: 2px solid var(--black); }
-    .cart-btn {
-      background: var(--black); color: var(--white); border: none;
-      padding: 10px 22px; font-family: var(--font-display); font-size: 14px;
-      font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-      cursor: pointer; transition: background 0.2s;
-    }
-    .cart-btn:hover { background: var(--grey-dark); }
-    .cart-count {
-      background: var(--accent); color: var(--black); border-radius: 50%;
-      width: 18px; height: 18px; font-size: 10px; font-weight: 800;
-      display: inline-flex; align-items: center; justify-content: center; margin-left: 6px;
-    }
-
-    /* PAGES */
-    .page { display: none; }
-    .page.active { display: block; }
-
-    /* HERO */
-    .hero {
-      min-height: 91vh; background: var(--black);
-      display: grid; grid-template-columns: 1fr 1fr; overflow: hidden;
-    }
-    .hero-content { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; }
-    .hero-eyebrow {
-      font-family: var(--font-display); font-size: 12px; font-weight: 700;
-      letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
-    }
-    .hero h1 {
-      font-family: var(--font-display); font-size: clamp(68px, 9vw, 120px);
-      font-weight: 900; line-height: 0.88; text-transform: uppercase; color: var(--white); margin-bottom: 28px;
-    }
-    .hero h1 em { font-style: normal; color: var(--accent); display: block; }
-    .hero-sub { font-size: 16px; font-weight: 300; color: var(--grey-mid); max-width: 380px; line-height: 1.7; margin-bottom: 44px; }
-    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-block; background: var(--accent); color: var(--black);
-      padding: 15px 36px; font-family: var(--font-display); font-size: 15px;
-      font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
-      text-decoration: none; cursor: pointer; border: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,255,0,0.3); }
-    .btn-secondary {
-      display: inline-block; background: transparent; color: var(--white);
-      padding: 14px 36px; font-family: var(--font-display); font-size: 15px;
-      font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-      text-decoration: none; border: 1px solid rgba(255,255,255,0.3);
-      transition: border-color 0.2s; cursor: pointer;
-    }
-    .btn-secondary:hover { border-color: var(--white); }
-    .hero-visual {
-      background: radial-gradient(ellipse at 60% 50%, rgba(232,255,0,0.07) 0%, transparent 60%),
-        linear-gradient(135deg, #111 0%, #1e1e1e 50%, #0a0a0a 100%);
-      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px;
-    }
-    .hero-big-text {
-      font-family: var(--font-display); font-size: 160px; font-weight: 900;
-      text-transform: uppercase; color: rgba(255,255,255,0.04); line-height: 1; letter-spacing: -6px;
-    }
-    .hero-tag {
-      font-family: var(--font-display); font-size: 14px; font-weight: 700;
-      letter-spacing: 6px; text-transform: uppercase; color: rgba(232,255,0,0.35);
-    }
-
-    /* SECTIONS */
-    .section-label {
-      font-family: var(--font-display); font-size: 12px; font-weight: 700;
-      letter-spacing: 4px; text-transform: uppercase; color: var(--grey-mid); margin-bottom: 12px;
-    }
-    .section-title {
-      font-family: var(--font-display); font-size: clamp(40px, 5vw, 68px);
-      font-weight: 900; text-transform: uppercase; line-height: 0.92; margin-bottom: 44px;
-    }
-
-    /* CATEGORIES */
-    .categories { background: var(--black); padding: 80px 48px; }
-    .categories .section-label { color: var(--grey-dark); }
-    .categories .section-title { color: var(--white); }
-    .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-    .cat-card { position: relative; aspect-ratio: 3/4; overflow: hidden; cursor: pointer; text-decoration: none; display: block; }
-    .cat-bg { width: 100%; height: 100%; transition: transform 0.5s ease; display: flex; align-items: flex-end; padding: 32px; }
-    .cat-card:hover .cat-bg { transform: scale(1.04); }
-    .cat-card:nth-child(1) .cat-bg { background: linear-gradient(to top, #0a0a0a 0%, #1e3a5f 60%, #2d5a8e 100%); }
-    .cat-card:nth-child(2) .cat-bg { background: linear-gradient(to top, #0a0a0a 0%, #1a1a1a 60%, #2d2d2d 100%); }
-    .cat-card:nth-child(3) .cat-bg { background: linear-gradient(to top, #0a0a0a 0%, #3d1a0a 60%, #5a2d1a 100%); }
-    .cat-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%); font-size: 72px; opacity: 0.15; transition: opacity 0.3s; }
-    .cat-card:hover .cat-icon { opacity: 0.28; }
-    .cat-info { position: relative; z-index: 2; }
-    .cat-name { font-family: var(--font-display); font-size: 30px; font-weight: 900; text-transform: uppercase; color: var(--white); line-height: 1; margin-bottom: 6px; }
-    .cat-desc { font-size: 13px; color: var(--grey-mid); font-weight: 300; margin-bottom: 14px; }
-    .cat-link { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
-
-    /* PRODUCTS */
-    .products-section { padding: 80px 48px; }
-    .products-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 44px; }
-    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .product-card { cursor: pointer; }
-    .product-img {
-      aspect-ratio: 1; background: var(--grey-light); position: relative;
-      overflow: hidden; margin-bottom: 14px; display: flex; align-items: center;
-      justify-content: center; transition: background 0.3s;
-    }
-    .product-card:hover .product-img { background: #e0e0e0; }
-    .product-emoji { font-size: 70px; transition: transform 0.3s; }
-    .product-card:hover .product-emoji { transform: scale(1.1) rotate(-5deg); }
-    .product-tag {
-      position: absolute; top: 12px; left: 12px;
-      background: var(--black); color: var(--accent);
-      font-family: var(--font-display); font-size: 10px; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px;
-    }
-    .product-name { font-family: var(--font-display); font-size: 19px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
-    .product-sub { font-size: 13px; color: var(--grey-mid); margin-bottom: 10px; }
-    .product-footer { display: flex; align-items: center; justify-content: space-between; }
-    .product-price { font-family: var(--font-display); font-size: 21px; font-weight: 800; }
-    .add-to-cart {
-      background: var(--black); color: var(--white); border: none;
-      padding: 10px 16px; font-family: var(--font-display); font-size: 11px;
-      font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-      cursor: pointer; transition: background 0.2s, transform 0.15s;
-    }
-    .add-to-cart:hover { background: var(--accent); color: var(--black); transform: translateY(-1px); }
-
-    /* FEATURES */
-    .features-strip { background: var(--accent); padding: 60px 48px; }
-    .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
-    .feature-item { text-align: center; }
-    .feature-icon { font-size: 34px; margin-bottom: 10px; }
-    .feature-title { font-family: var(--font-display); font-size: 17px; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; }
-    .feature-desc { font-size: 13px; color: var(--grey-dark); line-height: 1.5; }
-
-    /* SEO BLOCK */
-    .seo-block { background: var(--grey-light); padding: 72px 48px; }
-    .seo-inner { max-width: 780px; margin: 0 auto; text-align: center; }
-    .seo-inner p { font-size: 16px; line-height: 1.8; color: var(--grey-dark); margin-bottom: 14px; }
-
-    /* PAGE HERO */
-    .page-hero { background: var(--black); padding: 80px 48px; position: relative; overflow: hidden; }
-    .page-hero::before {
-      content: attr(data-text); position: absolute; right: -10px; top: 50%;
-      transform: translateY(-50%); font-family: var(--font-display); font-size: 180px;
-      font-weight: 900; color: rgba(255,255,255,0.03); text-transform: uppercase;
-      white-space: nowrap; pointer-events: none;
-    }
-    .page-hero .section-label { color: var(--accent); }
-    .page-hero h1 { font-family: var(--font-display); font-size: clamp(44px, 7vw, 88px); font-weight: 900; text-transform: uppercase; color: var(--white); line-height: 0.9; }
-
-    /* FILTER BAR */
-    .filter-bar { display: flex; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; }
-    .filter-btn {
-      padding: 10px 22px; font-family: var(--font-display); font-size: 13px;
-      font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-      border: 1.5px solid var(--black); background: transparent; cursor: pointer; transition: all 0.2s;
-    }
-    .filter-btn.active, .filter-btn:hover { background: var(--black); color: var(--white); }
-
-    /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-    .about-visual { background: var(--grey-light); aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; font-size: 110px; }
-    .about-text p { font-size: 15px; line-height: 1.8; color: var(--grey-dark); margin-bottom: 18px; }
-    .stats-row { display: flex; gap: 36px; margin-top: 36px; }
-    .stat-num { font-family: var(--font-display); font-size: 44px; font-weight: 900; line-height: 1; }
-    .stat-label { font-size: 12px; color: var(--grey-mid); text-transform: uppercase; letter-spacing: 1px; }
-
-    /* BLOG */
-    .blog-card { cursor: pointer; }
-    .blog-img { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; font-size: 48px; margin-bottom: 18px; }
-    .blog-cat { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--grey-mid); margin-bottom: 8px; }
-    .blog-title { font-family: var(--font-display); font-size: 22px; font-weight: 800; text-transform: uppercase; line-height: 1.1; margin-bottom: 8px; }
-    .blog-excerpt { font-size: 13px; color: var(--grey-mid); line-height: 1.7; }
-
-    /* CONTACT */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; }
-    .contact-form input, .contact-form textarea, .contact-form select {
-      width: 100%; padding: 13px 16px; border: 1.5px solid #d0d0d0;
-      background: transparent; font-family: var(--font-body); font-size: 15px;
-      margin-bottom: 14px; outline: none; transition: border-color 0.2s;
-      -webkit-appearance: none; appearance: none;
-    }
-    .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: var(--black); }
-    .contact-form textarea { height: 130px; resize: vertical; }
-    .submit-btn {
-      background: var(--black); color: var(--white); border: none;
-      padding: 16px 40px; font-family: var(--font-display); font-size: 15px;
-      font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
-      cursor: pointer; transition: background 0.2s; width: 100%;
-    }
-    .submit-btn:hover { background: var(--grey-dark); }
-    .contact-info h3 { font-family: var(--font-display); font-size: 26px; font-weight: 800; text-transform: uppercase; margin-bottom: 24px; }
-    .contact-detail { display: flex; gap: 14px; margin-bottom: 22px; align-items: flex-start; }
-    .contact-detail-icon { font-size: 22px; }
-    .contact-detail-text h4 { font-family: var(--font-display); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-    .contact-detail-text p { font-size: 14px; color: var(--grey-mid); margin-top: 2px; }
-
-    /* FOOTER */
-    footer { background: var(--black); color: var(--white); padding: 64px 48px 32px; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-    .footer-logo { font-family: var(--font-display); font-size: 24px; font-weight: 900; text-transform: uppercase; color: var(--white); text-decoration: none; display: block; margin-bottom: 14px; }
-    .footer-logo span { color: var(--accent); background: var(--black); padding: 1px 4px; }
-    .footer-desc { font-size: 13px; color: var(--grey-mid); line-height: 1.7; max-width: 240px; }
-    .footer-col h4 { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; color: var(--grey-mid); }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 9px; }
-    .footer-col ul li a { color: var(--white); text-decoration: none; font-size: 14px; transition: color 0.2s; cursor: pointer; }
-    .footer-col ul li a:hover { color: var(--accent); }
-    .footer-bottom { border-top: 1px solid var(--grey-dark); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; }
-    .footer-bottom p { font-size: 11px; color: var(--grey-mid); }
-
-    /* CART SIDEBAR */
-    .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
-    .cart-overlay.open { opacity: 1; pointer-events: all; }
-    .cart-sidebar { position: fixed; right: -480px; top: 0; width: 420px; height: 100vh; background: var(--white); z-index: 2001; transition: right 0.35s cubic-bezier(0.4,0,0.2,1); display: flex; flex-direction: column; box-shadow: -8px 0 40px rgba(0,0,0,0.15); }
-    .cart-sidebar.open { right: 0; }
-    .cart-header { display: flex; align-items: center; justify-content: space-between; padding: 22px 26px; border-bottom: 1px solid var(--grey-light); }
-    .cart-header h2 { font-family: var(--font-display); font-size: 22px; font-weight: 900; text-transform: uppercase; }
-    .cart-close { background: none; border: none; font-size: 28px; cursor: pointer; color: var(--black); line-height: 1; }
-    .cart-items { flex: 1; overflow-y: auto; padding: 22px 26px; }
-    .cart-empty { text-align: center; padding: 60px 0; color: var(--grey-mid); font-family: var(--font-display); font-size: 17px; text-transform: uppercase; }
-    .cart-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--grey-light); align-items: center; }
-    .cart-item-img { width: 68px; height: 68px; background: var(--grey-light); display: flex; align-items: center; justify-content: center; font-size: 30px; flex-shrink: 0; }
-    .cart-item-info { flex: 1; }
-    .cart-item-name { font-family: var(--font-display); font-size: 15px; font-weight: 700; text-transform: uppercase; }
-    .cart-item-price { font-size: 13px; color: var(--grey-mid); margin-top: 3px; }
-    .cart-item-remove { background: none; border: none; cursor: pointer; color: var(--grey-mid); font-size: 18px; transition: color 0.2s; }
-    .cart-item-remove:hover { color: var(--black); }
-    .cart-footer { padding: 22px 26px; border-top: 1px solid var(--grey-light); }
-    .cart-total { display: flex; justify-content: space-between; font-family: var(--font-display); font-size: 19px; font-weight: 800; text-transform: uppercase; margin-bottom: 18px; }
-    .checkout-btn { width: 100%; background: var(--black); color: var(--white); border: none; padding: 17px; font-family: var(--font-display); font-size: 15px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
-    .checkout-btn:hover { background: var(--grey-dark); }
-    .checkout-note { font-size: 10px; color: var(--grey-mid); text-align: center; margin-top: 10px; }
-
-    /* NOTIFICATION */
-    .notification { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--black); color: var(--accent); padding: 13px 26px; font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; z-index: 9999; transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); white-space: nowrap; }
-    .notification.show { transform: translateX(-50%) translateY(0); }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-visual { display: none; }
-      .hero-content { padding: 60px 28px; }
-      .cat-grid { grid-template-columns: 1fr; }
-      .products-grid { grid-template-columns: repeat(2, 1fr); }
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; }
-      .about-visual { display: none; }
-      section, .products-section, .categories, .seo-block, .features-strip { padding: 56px 22px; }
-      .page-hero { padding: 60px 22px; }
-      footer { padding: 48px 22px 24px; }
-    }
+    :root{--black:#0a0a0a;--white:#f8f7f4;--accent:#e8ff00;--grey-light:#efefef;--grey-mid:#b0b0b0;--grey-dark:#3a3a3a;--fd:'Barlow Condensed',sans-serif;--fb:'Barlow',sans-serif}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+    body{font-family:'Barlow',sans-serif;background:var(--white);color:var(--black);overflow-x:hidden}
+    .demo-banner{background:var(--black);color:var(--accent);text-align:center;padding:9px 16px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;position:sticky;top:0;z-index:1000}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:var(--white);border-bottom:1px solid #e0e0e0;position:sticky;top:33px;z-index:999}
+    .nav-logo{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;color:var(--black);text-decoration:none;text-transform:uppercase;cursor:pointer}
+    .nav-logo span{color:var(--accent);background:var(--black);padding:1px 5px}
+    .nav-links{display:flex;gap:32px;list-style:none}
+    .nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--black);text-decoration:none;cursor:pointer;transition:color .2s}
+    .nav-links a:hover{color:var(--grey-mid)}
+    .cart-btn{background:var(--black);color:var(--white);border:none;padding:10px 22px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
+    .cart-count{background:var(--accent);color:var(--black);border-radius:50%;width:18px;height:18px;font-size:10px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;margin-left:6px}
+    .page{display:none}.page.active{display:block}
+    .hero{min-height:91vh;background:var(--black);display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+    .hero-content{display:flex;flex-direction:column;justify-content:center;padding:80px 64px}
+    .hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+    .hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(68px,9vw,120px);font-weight:900;line-height:.88;text-transform:uppercase;color:var(--white);margin-bottom:28px}
+    .hero h1 em{font-style:normal;color:var(--accent);display:block}
+    .hero-sub{font-size:16px;font-weight:300;color:var(--grey-mid);max-width:380px;line-height:1.7;margin-bottom:44px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+    .btn-primary{background:var(--accent);color:var(--black);padding:15px 36px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border:none;transition:transform .2s}
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-secondary{background:transparent;color:var(--white);padding:14px 36px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(255,255,255,.3);cursor:pointer}
+    .hero-visual{position:relative;overflow:hidden}
+    .hero-visual img{width:100%;height:100%;object-fit:cover;opacity:.7}
+    .hero-visual-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--black) 0%,transparent 30%)}
+    .section-label{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--grey-mid);margin-bottom:12px}
+    .section-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(40px,5vw,68px);font-weight:900;text-transform:uppercase;line-height:.92;margin-bottom:44px}
+    .categories{background:var(--black);padding:80px 48px}
+    .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+    .cat-card{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;text-decoration:none;display:block}
+    .cat-img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;filter:brightness(.45)}
+    .cat-card:hover .cat-img{transform:scale(1.06);filter:brightness(.6)}
+    .cat-info{position:absolute;bottom:0;left:0;right:0;padding:32px;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 100%)}
+    .cat-name{font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:900;text-transform:uppercase;color:var(--white);line-height:1;margin-bottom:6px}
+    .cat-desc{font-size:13px;color:var(--grey-mid);font-weight:300;margin-bottom:14px}
+    .cat-link{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+    .products-section{padding:80px 48px}
+    .products-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px}
+    .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+    .product-card{cursor:pointer}
+    .product-img{aspect-ratio:1;background:var(--grey-light);position:relative;overflow:hidden;margin-bottom:14px}
+    .product-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+    .product-card:hover .product-img img{transform:scale(1.05)}
+    .product-tag{position:absolute;top:12px;left:12px;background:var(--black);color:var(--accent);font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;z-index:2}
+    .product-name{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+    .product-sub{font-size:13px;color:var(--grey-mid);margin-bottom:10px}
+    .product-footer{display:flex;align-items:center;justify-content:space-between}
+    .product-price{font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:800}
+    .add-to-cart{background:var(--black);color:var(--white);border:none;padding:10px 16px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:background .2s}
+    .add-to-cart:hover{background:var(--accent);color:var(--black)}
+    .features-strip{background:var(--accent);padding:60px 48px}
+    .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+    .feature-item{text-align:center}
+    .feature-icon{font-size:34px;margin-bottom:10px}
+    .feature-title{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:800;text-transform:uppercase;margin-bottom:5px}
+    .feature-desc{font-size:13px;color:var(--grey-dark);line-height:1.5}
+    .seo-block{background:var(--grey-light);padding:72px 48px}
+    .seo-inner{max-width:780px;margin:0 auto;text-align:center}
+    .seo-inner p{font-size:16px;line-height:1.8;color:var(--grey-dark);margin-bottom:14px}
+    .page-hero{background:var(--black);padding:80px 48px;position:relative;overflow:hidden}
+    .page-hero::before{content:attr(data-text);position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-family:'Barlow Condensed',sans-serif;font-size:180px;font-weight:900;color:rgba(255,255,255,.03);text-transform:uppercase;white-space:nowrap;pointer-events:none}
+    .page-hero .section-label{color:var(--accent)}
+    .page-hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(44px,7vw,88px);font-weight:900;text-transform:uppercase;color:var(--white);line-height:.9}
+    .filter-bar{display:flex;gap:10px;margin-bottom:36px;flex-wrap:wrap}
+    .filter-btn{padding:10px 22px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border:1.5px solid var(--black);background:transparent;cursor:pointer;transition:all .2s}
+    .filter-btn.active,.filter-btn:hover{background:var(--black);color:var(--white)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+    .about-visual{aspect-ratio:4/5;overflow:hidden}
+    .about-visual img{width:100%;height:100%;object-fit:cover}
+    .about-text p{font-size:15px;line-height:1.8;color:var(--grey-dark);margin-bottom:18px}
+    .stats-row{display:flex;gap:36px;margin-top:36px}
+    .stat-num{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;line-height:1}
+    .stat-label{font-size:12px;color:var(--grey-mid);text-transform:uppercase;letter-spacing:1px}
+    .blog-card{cursor:pointer}
+    .blog-img{aspect-ratio:16/9;overflow:hidden;margin-bottom:18px}
+    .blog-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+    .blog-card:hover .blog-img img{transform:scale(1.04)}
+    .blog-cat{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--grey-mid);margin-bottom:8px}
+    .blog-title{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;text-transform:uppercase;line-height:1.1;margin-bottom:8px}
+    .blog-excerpt{font-size:13px;color:var(--grey-mid);line-height:1.7}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px}
+    .contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:13px 16px;border:1.5px solid #d0d0d0;background:transparent;font-family:'Barlow',sans-serif;font-size:15px;margin-bottom:14px;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none}
+    .contact-form input:focus,.contact-form textarea:focus{border-color:var(--black)}
+    .contact-form textarea{height:130px;resize:vertical}
+    .submit-btn{background:var(--black);color:var(--white);border:none;padding:16px 40px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;width:100%}
+    .contact-info h3{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;text-transform:uppercase;margin-bottom:24px}
+    .contact-detail{display:flex;gap:14px;margin-bottom:22px;align-items:flex-start}
+    .contact-detail-icon{font-size:22px}
+    .contact-detail-text h4{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+    .contact-detail-text p{font-size:14px;color:var(--grey-mid);margin-top:2px}
+    footer{background:var(--black);color:var(--white);padding:64px 48px 32px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+    .footer-logo{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;text-transform:uppercase;color:var(--white);text-decoration:none;display:block;margin-bottom:14px;cursor:pointer}
+    .footer-logo span{color:var(--accent);background:var(--black);padding:1px 4px}
+    .footer-desc{font-size:13px;color:var(--grey-mid);line-height:1.7;max-width:240px}
+    .footer-col h4{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;color:var(--grey-mid)}
+    .footer-col ul{list-style:none}
+    .footer-col ul li{margin-bottom:9px}
+    .footer-col ul li a{color:var(--white);text-decoration:none;font-size:14px;cursor:pointer;transition:color .2s}
+    .footer-col ul li a:hover{color:var(--accent)}
+    .footer-bottom{border-top:1px solid var(--grey-dark);padding-top:22px;display:flex;justify-content:space-between;align-items:center}
+    .footer-bottom p{font-size:11px;color:var(--grey-mid)}
+    .cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000;opacity:0;pointer-events:none;transition:opacity .3s}
+    .cart-overlay.open{opacity:1;pointer-events:all}
+    .cart-sidebar{position:fixed;right:-480px;top:0;width:420px;height:100vh;background:var(--white);z-index:2001;transition:right .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.15)}
+    .cart-sidebar.open{right:0}
+    .cart-header{display:flex;align-items:center;justify-content:space-between;padding:22px 26px;border-bottom:1px solid var(--grey-light)}
+    .cart-header h2{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;text-transform:uppercase}
+    .cart-close{background:none;border:none;font-size:28px;cursor:pointer;color:var(--black);line-height:1}
+    .cart-items{flex:1;overflow-y:auto;padding:22px 26px}
+    .cart-empty{text-align:center;padding:60px 0;color:var(--grey-mid);font-family:'Barlow Condensed',sans-serif;font-size:17px;text-transform:uppercase}
+    .cart-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--grey-light);align-items:center}
+    .cart-item-img{width:68px;height:68px;background:var(--grey-light);overflow:hidden;flex-shrink:0}
+    .cart-item-img img{width:100%;height:100%;object-fit:cover}
+    .cart-item-info{flex:1}
+    .cart-item-name{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;text-transform:uppercase}
+    .cart-item-price{font-size:13px;color:var(--grey-mid);margin-top:3px}
+    .cart-item-remove{background:none;border:none;cursor:pointer;color:var(--grey-mid);font-size:18px}
+    .cart-footer{padding:22px 26px;border-top:1px solid var(--grey-light)}
+    .cart-total{display:flex;justify-content:space-between;font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:800;text-transform:uppercase;margin-bottom:18px}
+    .checkout-btn{width:100%;background:var(--black);color:var(--white);border:none;padding:17px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+    .checkout-note{font-size:10px;color:var(--grey-mid);text-align:center;margin-top:10px}
+    .notification{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--black);color:var(--accent);padding:13px 26px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;z-index:9999;transition:transform .35s cubic-bezier(.4,0,.2,1);white-space:nowrap}
+    .notification.show{transform:translateX(-50%) translateY(0)}
+    @media(max-width:900px){nav{padding:0 20px}.nav-links{display:none}.hero{grid-template-columns:1fr;min-height:auto}.hero-visual{display:none}.hero-content{padding:60px 28px}.cat-grid{grid-template-columns:1fr}.products-grid{grid-template-columns:repeat(2,1fr)}.features-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.about-grid,.contact-grid{grid-template-columns:1fr}.about-visual{display:none}.products-section,.categories,.seo-block,.features-strip{padding:56px 22px}.page-hero{padding:60px 22px}footer{padding:48px 22px 24px}}
   </style>
 </head>
 <body>
 
-<!-- DEMO BANNER — appears on every page per assessment requirements -->
-<div class="demo-banner">
-  ⚠️ DEMO SITE — University Assessment Only · MKT9712 · University of Lincoln · No real transactions processed ⚠️
-</div>
+<div class="demo-banner">⚠️ DEMO SITE — University Assessment Only · MKT9712 · University of Lincoln · No real transactions processed ⚠️</div>
 
-<!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#" onclick="navigateTo('home')">Sole<span>Quest</span></a>
+  <a class="nav-logo" onclick="navigateTo('home')">Sole<span>Quest</span></a>
   <ul class="nav-links">
-    <li><a href="#" onclick="navigateTo('home')" data-page="home">Home</a></li>
-    <li><a href="#" onclick="navigateTo('shop')" data-page="shop">Shop</a></li>
-    <li><a href="#" onclick="navigateTo('about')" data-page="about">About</a></li>
-    <li><a href="#" onclick="navigateTo('blog')" data-page="blog">Journal</a></li>
-    <li><a href="#" onclick="navigateTo('contact')" data-page="contact">Contact</a></li>
+    <li><a onclick="navigateTo('home')" data-page="home">Home</a></li>
+    <li><a onclick="navigateTo('shop')" data-page="shop">Shop</a></li>
+    <li><a onclick="navigateTo('about')" data-page="about">About</a></li>
+    <li><a onclick="navigateTo('blog')" data-page="blog">Journal</a></li>
+    <li><a onclick="navigateTo('contact')" data-page="contact">Contact</a></li>
   </ul>
   <button class="cart-btn" onclick="openCart()">Bag <span class="cart-count">0</span></button>
 </nav>
 
-
-<!-- ======== HOME ======== -->
+<!-- HOME -->
 <div class="page active" id="home">
-
-  <section class="hero" style="padding:0; min-height:91vh;">
+  <section class="hero" style="padding:0;">
     <div class="hero-content">
       <p class="hero-eyebrow">New Season · Spring 2026</p>
       <h1>RUN <em>YOUR</em> QUEST</h1>
@@ -345,8 +166,8 @@
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-big-text">RUN</div>
-      <div class="hero-tag">Since 2024 · Lincoln, UK</div>
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900&q=80&fit=crop" alt="Premium running shoes">
+      <div class="hero-visual-overlay"></div>
     </div>
   </section>
 
@@ -354,65 +175,41 @@
     <p class="section-label">Shop by Run Type</p>
     <h2 class="section-title" style="color:var(--white);">Find Your Stride</h2>
     <div class="cat-grid">
-      <a class="cat-card" href="#" onclick="navigateTo('shop')">
-        <div class="cat-bg">
-          <div class="cat-icon">🌅</div>
-          <div class="cat-info">
-            <div class="cat-name">Easy Runs</div>
-            <div class="cat-desc">All-day comfort for long, relaxed miles</div>
-            <div class="cat-link">Explore →</div>
-          </div>
-        </div>
+      <a class="cat-card" onclick="navigateTo('shop')">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80&fit=crop" alt="Easy run shoes">
+        <div class="cat-info"><div class="cat-name">Easy Runs</div><div class="cat-desc">All-day comfort for long, relaxed miles</div><div class="cat-link">Explore →</div></div>
       </a>
-      <a class="cat-card" href="#" onclick="navigateTo('shop')">
-        <div class="cat-bg">
-          <div class="cat-icon">👟</div>
-          <div class="cat-info">
-            <div class="cat-name">Comfort</div>
-            <div class="cat-desc">Cushioned daily trainers for every runner</div>
-            <div class="cat-link">Explore →</div>
-          </div>
-        </div>
+      <a class="cat-card" onclick="navigateTo('shop')">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=80&fit=crop" alt="Comfort running shoes">
+        <div class="cat-info"><div class="cat-name">Comfort</div><div class="cat-desc">Cushioned daily trainers for every runner</div><div class="cat-link">Explore →</div></div>
       </a>
-      <a class="cat-card" href="#" onclick="navigateTo('shop')">
-        <div class="cat-bg">
-          <div class="cat-icon">🏆</div>
-          <div class="cat-info">
-            <div class="cat-name">Race Day</div>
-            <div class="cat-desc">Carbon-plated speed for when it counts</div>
-            <div class="cat-link">Explore →</div>
-          </div>
-        </div>
+      <a class="cat-card" onclick="navigateTo('shop')">
+        <img class="cat-img" src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600&q=80&fit=crop" alt="Race day shoes">
+        <div class="cat-info"><div class="cat-name">Race Day</div><div class="cat-desc">Carbon-plated speed for when it counts</div><div class="cat-link">Explore →</div></div>
       </a>
     </div>
   </section>
 
   <section class="products-section">
     <div class="products-header">
-      <div>
-        <p class="section-label">Bestsellers</p>
-        <h2 class="section-title">Top Picks</h2>
-      </div>
+      <div><p class="section-label">Bestsellers</p><h2 class="section-title">Top Picks</h2></div>
       <button class="btn-primary" onclick="navigateTo('shop')" style="margin-bottom:44px;">View All</button>
     </div>
     <div class="products-grid">
       <div class="product-card">
-        <div class="product-img"><span class="product-tag">Easy Run</span><span class="product-emoji">🏃</span></div>
-        <div class="product-name">Quest Glide 1</div>
-        <div class="product-sub">Easy Run · UK 6–13</div>
-        <div class="product-footer"><span class="product-price">£129</span><button class="add-to-cart" onclick="addToCart('Quest Glide 1',129,'🏃','Easy Run')">Add to Bag</button></div>
+        <div class="product-img"><span class="product-tag">Easy Run</span><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80&fit=crop" alt="Quest Glide 1"></div>
+        <div class="product-name">Quest Glide 1</div><div class="product-sub">Easy Run · UK 6–13</div>
+        <div class="product-footer"><span class="product-price">£129</span><button class="add-to-cart" onclick="addToCart('Quest Glide 1',129,'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&q=80','Easy Run')">Add to Bag</button></div>
       </div>
       <div class="product-card">
-        <div class="product-img"><span class="product-tag">Comfort</span><span class="product-emoji">👟</span></div>
-        <div class="product-name">Drift Cloud Pro</div>
-        <div class="product-sub">Comfort · UK 4–14</div>
-        <div class="product-footer"><span class="product-price">£159</span><button class="add-to-cart" onclick="addToCart('Drift Cloud Pro',159,'👟','Comfort')">Add to Bag</button></div>
+        <div class="product-img"><span class="product-tag">Comfort</span><img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=80&fit=crop" alt="Drift Cloud Pro"></div>
+        <div class="product-name">Drift Cloud Pro</div><div class="product-sub">Comfort · UK 4–14</div>
+        <div class="product-footer"><span class="product-price">£159</span><button class="add-to-cart" onclick="addToCart('Drift Cloud Pro',159,'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=100&q=80','Comfort')">Add to Bag</button></div>
       </div>
       <div class="product-card">
-        <div class="product-img"><span class="product-tag">Race Day</span><span class="product-emoji">⚡</span></div>
-        <div class="product-name">Apex Carbon X</div>
-        <div class="product-sub">Race Day · UK 6–13</div>
-        <div class="product-footer"><span class="product-price">£239</span><button class="add-to-cart" onclick="addToCart('Apex Carbon X',239,'⚡','Race Day')">Add to Bag</button></div>
+        <div class="product-img"><span class="product-tag">Race Day</span><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600&q=80&fit=crop" alt="Apex Carbon X"></div>
+        <div class="product-name">Apex Carbon X</div><div class="product-sub">Race Day · UK 6–13</div>
+        <div class="product-footer"><span class="product-price">£239</span><button class="add-to-cart" onclick="addToCart('Apex Carbon X',239,'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=100&q=80','Race Day')">Add to Bag</button></div>
       </div>
     </div>
   </section>
@@ -430,21 +227,15 @@
     <div class="seo-inner">
       <p class="section-label" style="text-align:center;">Why Sole Quest</p>
       <h2 class="section-title" style="font-size:40px;text-align:center;margin-bottom:28px;">Premium Running Shoes UK</h2>
-      <p>At <strong>Sole Quest</strong>, we believe every runner deserves the right shoe for every run. Whether you're logging <strong>easy miles</strong> through the park, building mileage in <strong>comfortable daily trainers</strong>, or toeing the line at your next race in <strong>carbon-plated race shoes</strong> — our curated collection carries you further.</p>
-      <p>Based in Lincoln, UK, we offer <strong>free UK delivery</strong> on orders over £75, expert fitting advice, and a sustainable take-back scheme. Running is good for you — it should be good for the planet too.</p>
+      <p>At <strong>Sole Quest</strong>, we believe every runner deserves the right shoe for every run. Whether you're logging <strong>easy miles</strong>, building mileage in <strong>comfortable daily trainers</strong>, or toeing the line in <strong>carbon-plated race shoes</strong> — our curated collection carries you further.</p>
+      <p>Based in Lincoln, UK. <strong>Free UK delivery</strong> on orders over £75. Expert fitting advice. Sustainable take-back scheme.</p>
     </div>
   </section>
-
 </div>
-<!-- ======== END HOME ======== -->
 
-
-<!-- ======== SHOP ======== -->
+<!-- SHOP -->
 <div class="page" id="shop">
-  <div class="page-hero" data-text="SHOP">
-    <p class="section-label">All Products</p>
-    <h1>Shop the<br>Collection</h1>
-  </div>
+  <div class="page-hero" data-text="SHOP"><p class="section-label">All Products</p><h1>Shop the<br>Collection</h1></div>
   <section class="products-section">
     <div class="filter-bar">
       <button class="filter-btn active" onclick="filterProducts(this,'all')">All</button>
@@ -455,85 +246,67 @@
     </div>
     <div class="products-grid" id="shop-grid">
       <div class="product-card" data-category="easy">
-        <div class="product-img"><span class="product-tag">Easy Run</span><span class="product-emoji">🏃</span></div>
-        <div class="product-name">Quest Glide 1</div>
-        <div class="product-sub">Lightweight easy runner · UK 6–13</div>
-        <div class="product-footer"><span class="product-price">£129</span><button class="add-to-cart" onclick="addToCart('Quest Glide 1',129,'🏃','Easy Run')">Add to Bag</button></div>
+        <div class="product-img"><span class="product-tag">Easy Run</span><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80&fit=crop" alt="Quest Glide 1"></div>
+        <div class="product-name">Quest Glide 1</div><div class="product-sub">Lightweight easy runner · UK 6–13</div>
+        <div class="product-footer"><span class="product-price">£129</span><button class="add-to-cart" onclick="addToCart('Quest Glide 1',129,'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&q=80','Easy Run')">Add to Bag</button></div>
       </div>
       <div class="product-card" data-category="easy">
-        <div class="product-img"><span class="product-tag">Easy Run</span><span class="product-emoji">🌤️</span></div>
-        <div class="product-name">Sunrise Soft</div>
-        <div class="product-sub">Morning run cushion · UK 4–13</div>
-        <div class="product-footer"><span class="product-price">£109</span><button class="add-to-cart" onclick="addToCart('Sunrise Soft',109,'🌤️','Easy Run')">Add to Bag</button></div>
+        <div class="product-img"><span class="product-tag">Easy Run</span><img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80&fit=crop" alt="Sunrise Soft"></div>
+        <div class="product-name">Sunrise Soft</div><div class="product-sub">Morning run cushion · UK 4–13</div>
+        <div class="product-footer"><span class="product-price">£109</span><button class="add-to-cart" onclick="addToCart('Sunrise Soft',109,'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=100&q=80','Easy Run')">Add to Bag</button></div>
       </div>
       <div class="product-card" data-category="comfort">
-        <div class="product-img"><span class="product-tag">Comfort</span><span class="product-emoji">👟</span></div>
-        <div class="product-name">Drift Cloud Pro</div>
-        <div class="product-sub">Max cushion daily trainer · UK 4–14</div>
-        <div class="product-footer"><span class="product-price">£159</span><button class="add-to-cart" onclick="addToCart('Drift Cloud Pro',159,'👟','Comfort')">Add to Bag</button></div>
+        <div class="product-img"><span class="product-tag">Comfort</span><img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=80&fit=crop" alt="Drift Cloud Pro"></div>
+        <div class="product-name">Drift Cloud Pro</div><div class="product-sub">Max cushion daily trainer · UK 4–14</div>
+        <div class="product-footer"><span class="product-price">£159</span><button class="add-to-cart" onclick="addToCart('Drift Cloud Pro',159,'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=100&q=80','Comfort')">Add to Bag</button></div>
       </div>
       <div class="product-card" data-category="comfort">
-        <div class="product-img"><span class="product-tag">Comfort</span><span class="product-emoji">🛋️</span></div>
-        <div class="product-name">Velour Pace</div>
-        <div class="product-sub">Plush everyday shoe · UK 5–13</div>
-        <div class="product-footer"><span class="product-price">£139</span><button class="add-to-cart" onclick="addToCart('Velour Pace',139,'🛋️','Comfort')">Add to Bag</button></div>
+        <div class="product-img"><span class="product-tag">Comfort</span><img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&q=80&fit=crop" alt="Velour Pace"></div>
+        <div class="product-name">Velour Pace</div><div class="product-sub">Plush everyday shoe · UK 5–13</div>
+        <div class="product-footer"><span class="product-price">£139</span><button class="add-to-cart" onclick="addToCart('Velour Pace',139,'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=100&q=80','Comfort')">Add to Bag</button></div>
       </div>
       <div class="product-card" data-category="race">
-        <div class="product-img"><span class="product-tag">Race Day</span><span class="product-emoji">⚡</span></div>
-        <div class="product-name">Apex Carbon X</div>
-        <div class="product-sub">Carbon plate racer · UK 6–13</div>
-        <div class="product-footer"><span class="product-price">£239</span><button class="add-to-cart" onclick="addToCart('Apex Carbon X',239,'⚡','Race Day')">Add to Bag</button></div>
+        <div class="product-img"><span class="product-tag">Race Day</span><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600&q=80&fit=crop" alt="Apex Carbon X"></div>
+        <div class="product-name">Apex Carbon X</div><div class="product-sub">Carbon plate racer · UK 6–13</div>
+        <div class="product-footer"><span class="product-price">£239</span><button class="add-to-cart" onclick="addToCart('Apex Carbon X',239,'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=100&q=80','Race Day')">Add to Bag</button></div>
       </div>
       <div class="product-card" data-category="race">
-        <div class="product-img"><span class="product-tag">Race Day</span><span class="product-emoji">🏆</span></div>
-        <div class="product-name">Podium Elite V2</div>
-        <div class="product-sub">PB chaser · UK 6–12</div>
-        <div class="product-footer"><span class="product-price">£269</span><button class="add-to-cart" onclick="addToCart('Podium Elite V2',269,'🏆','Race Day')">Add to Bag</button></div>
+        <div class="product-img"><span class="product-tag">Race Day</span><img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=600&q=80&fit=crop" alt="Podium Elite V2"></div>
+        <div class="product-name">Podium Elite V2</div><div class="product-sub">PB chaser · UK 6–12</div>
+        <div class="product-footer"><span class="product-price">£269</span><button class="add-to-cart" onclick="addToCart('Podium Elite V2',269,'https://images.unsplash.com/photo-1539185441755-769473a23570?w=100&q=80','Race Day')">Add to Bag</button></div>
       </div>
       <div class="product-card" data-category="apparel">
-        <div class="product-img"><span class="product-tag">Apparel</span><span class="product-emoji">👕</span></div>
-        <div class="product-name">Aero Run Tee</div>
-        <div class="product-sub">Breathable performance top · XS–XXL</div>
-        <div class="product-footer"><span class="product-price">£49</span><button class="add-to-cart" onclick="addToCart('Aero Run Tee',49,'👕','Apparel')">Add to Bag</button></div>
+        <div class="product-img"><span class="product-tag">Apparel</span><img src="https://images.unsplash.com/photo-1556906781-9a412961a83e?w=600&q=80&fit=crop" alt="Aero Run Tee"></div>
+        <div class="product-name">Aero Run Tee</div><div class="product-sub">Breathable performance top · XS–XXL</div>
+        <div class="product-footer"><span class="product-price">£49</span><button class="add-to-cart" onclick="addToCart('Aero Run Tee',49,'https://images.unsplash.com/photo-1556906781-9a412961a83e?w=100&q=80','Apparel')">Add to Bag</button></div>
       </div>
       <div class="product-card" data-category="apparel">
-        <div class="product-img"><span class="product-tag">Apparel</span><span class="product-emoji">🩳</span></div>
-        <div class="product-name">Quest Stride Shorts</div>
-        <div class="product-sub">5" split shorts · XS–XL</div>
-        <div class="product-footer"><span class="product-price">£55</span><button class="add-to-cart" onclick="addToCart('Quest Stride Shorts',55,'🩳','Apparel')">Add to Bag</button></div>
+        <div class="product-img"><span class="product-tag">Apparel</span><img src="https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=600&q=80&fit=crop" alt="Quest Stride Shorts"></div>
+        <div class="product-name">Quest Stride Shorts</div><div class="product-sub">5" split shorts · XS–XL</div>
+        <div class="product-footer"><span class="product-price">£55</span><button class="add-to-cart" onclick="addToCart('Quest Stride Shorts',55,'https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=100&q=80','Apparel')">Add to Bag</button></div>
       </div>
       <div class="product-card" data-category="apparel">
-        <div class="product-img"><span class="product-tag">Apparel</span><span class="product-emoji">🧥</span></div>
-        <div class="product-name">Windbreak Jacket</div>
-        <div class="product-sub">Packable running jacket · XS–XL</div>
-        <div class="product-footer"><span class="product-price">£89</span><button class="add-to-cart" onclick="addToCart('Windbreak Jacket',89,'🧥','Apparel')">Add to Bag</button></div>
+        <div class="product-img"><span class="product-tag">Apparel</span><img src="https://images.unsplash.com/photo-1520975954732-35dd22299614?w=600&q=80&fit=crop" alt="Windbreak Jacket"></div>
+        <div class="product-name">Windbreak Jacket</div><div class="product-sub">Packable running jacket · XS–XL</div>
+        <div class="product-footer"><span class="product-price">£89</span><button class="add-to-cart" onclick="addToCart('Windbreak Jacket',89,'https://images.unsplash.com/photo-1520975954732-35dd22299614?w=100&q=80','Apparel')">Add to Bag</button></div>
       </div>
     </div>
   </section>
-  <section class="seo-block">
-    <div class="seo-inner">
-      <p>Our complete running collection spans every pace and distance. From <strong>easy run trainers</strong> with plush cushioning for recovery days, to <strong>carbon-plated race shoes</strong> engineered to chase personal bests. Complete your kit with our <strong>technical running apparel</strong> — breathable tees, split shorts, and packable jackets. Free UK delivery on orders over £75.</p>
-    </div>
-  </section>
+  <section class="seo-block"><div class="seo-inner"><p>From <strong>easy run trainers</strong> to <strong>carbon-plated race shoes</strong> and <strong>technical running apparel</strong>. Free UK delivery on orders over £75.</p></div></section>
 </div>
-<!-- ======== END SHOP ======== -->
 
-
-<!-- ======== ABOUT ======== -->
+<!-- ABOUT -->
 <div class="page" id="about">
-  <div class="page-hero" data-text="ABOUT">
-    <p class="section-label">Our Story</p>
-    <h1>Built by Runners,<br>For Runners</h1>
-  </div>
+  <div class="page-hero" data-text="ABOUT"><p class="section-label">Our Story</p><h1>Built by Runners,<br>For Runners</h1></div>
   <section style="padding:90px 48px;">
     <div class="about-grid">
-      <div class="about-visual">🏃‍♂️</div>
+      <div class="about-visual"><img src="https://images.unsplash.com/photo-1571008887538-b36bb32f4571?w=800&q=80&fit=crop" alt="Runner on road"></div>
       <div class="about-text">
         <p class="section-label">Who We Are</p>
         <h2 class="section-title">The Sole Quest Mission</h2>
-        <p>Sole Quest was born on a rainy Sunday long run outside Lincoln in 2024. We were frustrated — the running shoe market felt either too technical and jargon-heavy, or too generic and uninspiring. We wanted something different.</p>
-        <p>Our philosophy is simple: the right shoe changes everything. Whether you're a first-time 5K runner or a seasoned ultramarathoner, every foot deserves a thoughtfully engineered shoe.</p>
-        <p>We source from sustainable suppliers, use recycled materials wherever possible, and offset carbon from all UK deliveries. Running is good for you — it should be good for the planet too.</p>
+        <p>Sole Quest was born on a rainy Sunday long run outside Lincoln in 2024. We were frustrated — the running shoe market felt too technical and jargon-heavy, or too generic and uninspiring.</p>
+        <p>Our philosophy: the right shoe changes everything. Whether you're a first-time 5K runner or a seasoned ultramarathoner, every foot deserves a thoughtfully engineered shoe.</p>
+        <p>We source from sustainable suppliers, use recycled materials, and offset carbon from all UK deliveries. Running is good for you — it should be good for the planet too.</p>
         <div class="stats-row">
           <div><div class="stat-num">12K+</div><div class="stat-label">Happy Runners</div></div>
           <div><div class="stat-num">4</div><div class="stat-label">Categories</div></div>
@@ -544,72 +317,32 @@
   </section>
   <section class="features-strip">
     <div class="features-grid">
-      <div class="feature-item"><div class="feature-icon">🌱</div><div class="feature-title">Sustainable Supply Chain</div><div class="feature-desc">30% recycled materials. Partner factories audited annually for fair wages.</div></div>
-      <div class="feature-item"><div class="feature-icon">🇬🇧</div><div class="feature-title">UK Based</div><div class="feature-desc">Designed and shipped from Lincoln. Reducing air freight miles on every order.</div></div>
-      <div class="feature-item"><div class="feature-icon">🔬</div><div class="feature-title">Performance Tested</div><div class="feature-desc">Every shoe tested by real runners before hitting the shelf.</div></div>
-      <div class="feature-item"><div class="feature-icon">♻️</div><div class="feature-title">Take Back Scheme</div><div class="feature-desc">Return worn shoes for recycling. Get 10% off your next pair.</div></div>
+      <div class="feature-item"><div class="feature-icon">🌱</div><div class="feature-title">Sustainable Supply Chain</div><div class="feature-desc">30% recycled materials. Factories audited for fair wages.</div></div>
+      <div class="feature-item"><div class="feature-icon">🇬🇧</div><div class="feature-title">UK Based</div><div class="feature-desc">Designed and shipped from Lincoln.</div></div>
+      <div class="feature-item"><div class="feature-icon">🔬</div><div class="feature-title">Performance Tested</div><div class="feature-desc">Every shoe tested by real runners first.</div></div>
+      <div class="feature-item"><div class="feature-icon">♻️</div><div class="feature-title">Take Back Scheme</div><div class="feature-desc">Return worn shoes. Get 10% off your next pair.</div></div>
     </div>
   </section>
 </div>
-<!-- ======== END ABOUT ======== -->
 
-
-<!-- ======== JOURNAL ======== -->
+<!-- JOURNAL -->
 <div class="page" id="blog">
-  <div class="page-hero" data-text="JOURNAL">
-    <p class="section-label">The Sole Quest Journal</p>
-    <h1>Run Smarter,<br>Go Further</h1>
-  </div>
+  <div class="page-hero" data-text="JOURNAL"><p class="section-label">The Sole Quest Journal</p><h1>Run Smarter,<br>Go Further</h1></div>
   <section class="products-section">
     <div class="products-grid">
-      <div class="blog-card">
-        <div class="blog-img" style="background:#111;">🏃‍♀️</div>
-        <div class="blog-cat">Easy Running</div>
-        <div class="blog-title">Why 80% of Your Miles Should Be Easy</div>
-        <div class="blog-excerpt">The science behind the 80/20 training principle — and why slowing down is the fastest way to improve your race times.</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img" style="background:#1a1a2e;">⚡</div>
-        <div class="blog-cat">Race Prep</div>
-        <div class="blog-title">How to Choose a Carbon Plate Shoe</div>
-        <div class="blog-excerpt">Not all super-shoes are equal. Our guide to finding the right race shoe for your gait, pace, and distance.</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img" style="background:#0a2a0a;">🌱</div>
-        <div class="blog-cat">Sustainability</div>
-        <div class="blog-title">The Environmental Cost of Running Shoes</div>
-        <div class="blog-excerpt">We break down the lifecycle of a running shoe — from foam manufacturing to end-of-life — and what we're doing about it.</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img" style="background:#2a1a0a;">👟</div>
-        <div class="blog-cat">Gear Guide</div>
-        <div class="blog-title">Stack Height Explained</div>
-        <div class="blog-excerpt">High stack, low stack, zero drop — the jargon decoded so you can find the shoe geometry that suits your style.</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img" style="background:#1a0a2a;">🗺️</div>
-        <div class="blog-cat">Training</div>
-        <div class="blog-title">16-Week Half Marathon Plan for Beginners</div>
-        <div class="blog-excerpt">A structured week-by-week guide to get you from sofa to 13.1 miles — with the right shoes for every session.</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-img" style="background:#0a1a2a;">🔢</div>
-        <div class="blog-cat">Analytics</div>
-        <div class="blog-title">Running Metrics That Actually Matter</div>
-        <div class="blog-excerpt">Cadence, ground contact time, vertical oscillation — which numbers should you track, and how do they affect shoe choice?</div>
-      </div>
+      <div class="blog-card"><div class="blog-img"><img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&q=80&fit=crop" alt="Easy running"></div><div class="blog-cat">Easy Running</div><div class="blog-title">Why 80% of Your Miles Should Be Easy</div><div class="blog-excerpt">The science behind the 80/20 training principle — and why slowing down is the fastest way to improve your race times.</div></div>
+      <div class="blog-card"><div class="blog-img"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=800&q=80&fit=crop" alt="Race running"></div><div class="blog-cat">Race Prep</div><div class="blog-title">How to Choose a Carbon Plate Shoe</div><div class="blog-excerpt">Not all super-shoes are equal. Our guide to finding the right race shoe for your gait, pace, and distance.</div></div>
+      <div class="blog-card"><div class="blog-img"><img src="https://images.unsplash.com/photo-1542621334-a254cf47733d?w=800&q=80&fit=crop" alt="Sustainability"></div><div class="blog-cat">Sustainability</div><div class="blog-title">The Environmental Cost of Running Shoes</div><div class="blog-excerpt">We break down the lifecycle of a running shoe and what we're doing to reduce our environmental impact.</div></div>
+      <div class="blog-card"><div class="blog-img"><img src="https://images.unsplash.com/photo-1560072810-1cffb09faf0f?w=800&q=80&fit=crop" alt="Shoe guide"></div><div class="blog-cat">Gear Guide</div><div class="blog-title">Stack Height Explained</div><div class="blog-excerpt">High stack, low stack, zero drop — the jargon decoded so you can find the shoe geometry that suits your style.</div></div>
+      <div class="blog-card"><div class="blog-img"><img src="https://images.unsplash.com/photo-1530143311094-34d807799e8f?w=800&q=80&fit=crop" alt="Half marathon training"></div><div class="blog-cat">Training</div><div class="blog-title">16-Week Half Marathon Plan for Beginners</div><div class="blog-excerpt">A structured week-by-week guide to get you from sofa to 13.1 miles with the right shoes for every session.</div></div>
+      <div class="blog-card"><div class="blog-img"><img src="https://images.unsplash.com/photo-1511511450081-7bc1dda89ccb?w=800&q=80&fit=crop" alt="Running metrics"></div><div class="blog-cat">Analytics</div><div class="blog-title">Running Metrics That Actually Matter</div><div class="blog-excerpt">Cadence, ground contact time, vertical oscillation — which numbers should you track and how do they affect shoe choice?</div></div>
     </div>
   </section>
 </div>
-<!-- ======== END JOURNAL ======== -->
 
-
-<!-- ======== CONTACT ======== -->
+<!-- CONTACT -->
 <div class="page" id="contact">
-  <div class="page-hero" data-text="CONTACT">
-    <p class="section-label">Get in Touch</p>
-    <h1>We'd Love<br>To Hear From You</h1>
-  </div>
+  <div class="page-hero" data-text="CONTACT"><p class="section-label">Get in Touch</p><h1>We'd Love<br>To Hear From You</h1></div>
   <section style="padding:90px 48px;">
     <div class="contact-grid">
       <div>
@@ -620,71 +353,32 @@
           <input type="email" placeholder="Email Address">
           <select><option value="">Select a topic...</option><option>Order & Delivery</option><option>Returns & Exchanges</option><option>Fit Advice</option><option>General Enquiry</option></select>
           <textarea placeholder="Your message..."></textarea>
-          <button class="submit-btn" onclick="showNotification('Message sent! (Demo — not really sent)'); return false;">Send Message</button>
+          <button class="submit-btn" onclick="showNotification('Message sent! (Demo only)')">Send Message</button>
           <p style="font-size:11px;color:var(--grey-mid);margin-top:10px;">⚠️ Demo site — messages not sent. Assessment purposes only.</p>
         </div>
       </div>
       <div class="contact-info">
         <p class="section-label">Find Us</p>
         <h3>Sole Quest HQ</h3>
-        <div class="contact-detail">
-          <div class="contact-detail-icon">📍</div>
-          <div class="contact-detail-text"><h4>Address</h4><p>12 Brayford Wharf East<br>Lincoln, LN5 7AY, UK</p></div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-detail-icon">✉️</div>
-          <div class="contact-detail-text"><h4>Email</h4><p>hello@solequest.co.uk</p></div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-detail-icon">📞</div>
-          <div class="contact-detail-text"><h4>Phone</h4><p>+44 (0) 1522 000 000</p><p style="font-size:12px;">Mon–Fri, 9am–5pm</p></div>
-        </div>
-        <div style="margin-top:36px;background:var(--grey-light);padding:26px;">
-          <h4 style="font-family:var(--font-display);font-size:17px;font-weight:800;text-transform:uppercase;margin-bottom:10px;">Free Fit Advice</h4>
-          <p style="font-size:14px;color:var(--grey-mid);line-height:1.7;">Not sure which shoe is right for you? Our experts offer free 15-minute virtual fitting sessions every weekday morning. Book via email.</p>
-        </div>
+        <div class="contact-detail"><div class="contact-detail-icon">📍</div><div class="contact-detail-text"><h4>Address</h4><p>12 Brayford Wharf East<br>Lincoln, LN5 7AY, UK</p></div></div>
+        <div class="contact-detail"><div class="contact-detail-icon">✉️</div><div class="contact-detail-text"><h4>Email</h4><p>hello@solequest.co.uk</p></div></div>
+        <div class="contact-detail"><div class="contact-detail-icon">📞</div><div class="contact-detail-text"><h4>Phone</h4><p>+44 (0) 1522 000 000</p><p style="font-size:12px;">Mon–Fri, 9am–5pm</p></div></div>
+        <div style="margin-top:36px;background:var(--grey-light);padding:26px;"><h4 style="font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:800;text-transform:uppercase;margin-bottom:10px;">Free Fit Advice</h4><p style="font-size:14px;color:var(--grey-mid);line-height:1.7;">Our experts offer free 15-minute virtual fitting sessions every weekday morning. Book via email.</p></div>
       </div>
     </div>
   </section>
 </div>
-<!-- ======== END CONTACT ======== -->
 
-
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
-      <a class="footer-logo" href="#" onclick="navigateTo('home')">Sole<span>Quest</span></a>
-      <p class="footer-desc">Premium running shoes and apparel for every type of runner. Built on the belief that the right shoe changes everything.</p>
+      <a class="footer-logo" onclick="navigateTo('home')">Sole<span>Quest</span></a>
+      <p class="footer-desc">Premium running shoes and apparel for every type of runner.</p>
       <p style="font-size:11px;color:var(--grey-dark);margin-top:14px;line-height:1.6;">⚠️ DEMO SITE — MKT9712 University of Lincoln. No real transactions processed.</p>
     </div>
-    <div class="footer-col">
-      <h4>Shop</h4>
-      <ul>
-        <li><a onclick="navigateTo('shop')">Easy Run</a></li>
-        <li><a onclick="navigateTo('shop')">Comfort</a></li>
-        <li><a onclick="navigateTo('shop')">Race Day</a></li>
-        <li><a onclick="navigateTo('shop')">Apparel</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a onclick="navigateTo('about')">About Us</a></li>
-        <li><a onclick="navigateTo('blog')">Journal</a></li>
-        <li><a onclick="navigateTo('contact')">Contact</a></li>
-        <li><a>Sustainability</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Help</h4>
-      <ul>
-        <li><a>Delivery Info</a></li>
-        <li><a>Returns Policy</a></li>
-        <li><a>Size Guide</a></li>
-        <li><a>FAQs</a></li>
-      </ul>
-    </div>
+    <div class="footer-col"><h4>Shop</h4><ul><li><a onclick="navigateTo('shop')">Easy Run</a></li><li><a onclick="navigateTo('shop')">Comfort</a></li><li><a onclick="navigateTo('shop')">Race Day</a></li><li><a onclick="navigateTo('shop')">Apparel</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a onclick="navigateTo('about')">About Us</a></li><li><a onclick="navigateTo('blog')">Journal</a></li><li><a onclick="navigateTo('contact')">Contact</a></li><li><a>Sustainability</a></li></ul></div>
+    <div class="footer-col"><h4>Help</h4><ul><li><a>Delivery Info</a></li><li><a>Returns Policy</a></li><li><a>Size Guide</a></li><li><a>FAQs</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 Sole Quest. Demo site for university assessment purposes only.</p>
@@ -692,13 +386,9 @@
   </div>
 </footer>
 
-<!-- CART -->
 <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
 <div class="cart-sidebar" id="cart-sidebar">
-  <div class="cart-header">
-    <h2>Your Bag</h2>
-    <button class="cart-close" onclick="closeCart()">×</button>
-  </div>
+  <div class="cart-header"><h2>Your Bag</h2><button class="cart-close" onclick="closeCart()">×</button></div>
   <div class="cart-items" id="cart-items"><div class="cart-empty">Your bag is empty</div></div>
   <div class="cart-footer">
     <div class="cart-total"><span>Total</span><span id="cart-total">£0.00</span></div>
@@ -706,77 +396,20 @@
     <p class="checkout-note">⚠️ Demo site — payment disabled for university assessment</p>
   </div>
 </div>
-
 <div class="notification" id="notification"></div>
 
 <script>
-  const cart = [];
-
-  function updateCartCount() {
-    const count = cart.reduce((s,i) => s + i.qty, 0);
-    document.querySelectorAll('.cart-count').forEach(el => el.textContent = count);
-  }
-
-  function addToCart(name, price, emoji, category) {
-    const ex = cart.find(i => i.name === name);
-    if (ex) { ex.qty++; } else { cart.push({name, price, emoji, category, qty:1}); }
-    updateCartCount(); renderCart();
-    showNotification(name + ' added to bag');
-  }
-
-  function removeFromCart(name) {
-    const idx = cart.findIndex(i => i.name === name);
-    if (idx > -1) cart.splice(idx, 1);
-    updateCartCount(); renderCart();
-  }
-
-  function renderCart() {
-    const c = document.getElementById('cart-items');
-    const t = document.getElementById('cart-total');
-    if (cart.length === 0) { c.innerHTML = '<div class="cart-empty">Your bag is empty</div>'; t.textContent = '£0.00'; return; }
-    c.innerHTML = cart.map(item => `
-      <div class="cart-item">
-        <div class="cart-item-img">${item.emoji}</div>
-        <div class="cart-item-info">
-          <div class="cart-item-name">${item.name}</div>
-          <div class="cart-item-price">${item.category} · £${(item.price * item.qty).toFixed(2)}${item.qty > 1 ? ' (×'+item.qty+')' : ''}</div>
-        </div>
-        <button class="cart-item-remove" onclick="removeFromCart('${item.name}')">×</button>
-      </div>`).join('');
-    const total = cart.reduce((s,i) => s + i.price * i.qty, 0);
-    t.textContent = '£' + total.toFixed(2);
-  }
-
-  function openCart() { document.getElementById('cart-overlay').classList.add('open'); document.getElementById('cart-sidebar').classList.add('open'); renderCart(); }
-  function closeCart() { document.getElementById('cart-overlay').classList.remove('open'); document.getElementById('cart-sidebar').classList.remove('open'); }
-
-  function showNotification(msg) {
-    const el = document.getElementById('notification');
-    el.textContent = msg; el.classList.add('show');
-    setTimeout(() => el.classList.remove('show'), 2500);
-  }
-
-  function navigateTo(pageId) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    const page = document.getElementById(pageId);
-    if (page) { page.classList.add('active'); window.scrollTo({top:0, behavior:'smooth'}); }
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.classList.toggle('active', a.dataset.page === pageId);
-    });
-  }
-
-  function filterProducts(btn, category) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('#shop-grid .product-card').forEach(card => {
-      card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
-    });
-  }
-
-  function checkout() {
-    if (cart.length === 0) { showNotification('Your bag is empty!'); return; }
-    alert('⚠️ DEMO SITE\n\nPayment processing is disabled for university assessment purposes.\n\nThank you for browsing Sole Quest!');
-  }
+const cart=[];
+function updateCartCount(){const c=cart.reduce((s,i)=>s+i.qty,0);document.querySelectorAll('.cart-count').forEach(e=>e.textContent=c)}
+function addToCart(name,price,img,cat){const ex=cart.find(i=>i.name===name);if(ex){ex.qty++}else{cart.push({name,price,img,cat,qty:1})}updateCartCount();renderCart();showNotification(name+' added to bag')}
+function removeFromCart(name){const i=cart.findIndex(x=>x.name===name);if(i>-1)cart.splice(i,1);updateCartCount();renderCart()}
+function renderCart(){const c=document.getElementById('cart-items'),t=document.getElementById('cart-total');if(!cart.length){c.innerHTML='<div class="cart-empty">Your bag is empty</div>';t.textContent='£0.00';return}c.innerHTML=cart.map(i=>`<div class="cart-item"><div class="cart-item-img"><img src="${i.img}" alt="${i.name}"></div><div class="cart-item-info"><div class="cart-item-name">${i.name}</div><div class="cart-item-price">${i.cat} · £${(i.price*i.qty).toFixed(2)}${i.qty>1?' (×'+i.qty+')':''}</div></div><button class="cart-item-remove" onclick="removeFromCart('${i.name}')">×</button></div>`).join('');t.textContent='£'+cart.reduce((s,i)=>s+i.price*i.qty,0).toFixed(2)}
+function openCart(){document.getElementById('cart-overlay').classList.add('open');document.getElementById('cart-sidebar').classList.add('open');renderCart()}
+function closeCart(){document.getElementById('cart-overlay').classList.remove('open');document.getElementById('cart-sidebar').classList.remove('open')}
+function showNotification(msg){const e=document.getElementById('notification');e.textContent=msg;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2500)}
+function navigateTo(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const p=document.getElementById(id);if(p){p.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.dataset.page===id))}
+function filterProducts(btn,cat){document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('#shop-grid .product-card').forEach(c=>{c.style.display=(cat==='all'||c.dataset.category===cat)?'block':'none'})}
+function checkout(){if(!cart.length){showNotification('Your bag is empty!');return}alert('⚠️ DEMO SITE\n\nPayment processing is disabled for university assessment purposes.\n\nThank you for browsing Sole Quest!')}
 </script>
 </body>
 </html>
